@@ -1,0 +1,275 @@
+/* --- Fondo iframe con blur --- */
+#fondo-previa {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  filter: blur(20px);
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #114b3c;
+  min-height: 100vh;
+  background-color: #ff880080;
+  overflow-y: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.producto-container {
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  z-index: 1;
+}
+
+/* Tarjeta principal con blur más fuerte (tipo iOS) */
+.tarjeta-blur {
+  display: flex;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.401);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  align-items: center;
+  color: #0f3d22;
+  flex-wrap: wrap;
+}
+
+.imagen-producto {
+  max-width: 350px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.info {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.info h1 {
+  font-size: 2.4rem;
+  margin: 0;
+  font-weight: 700;
+  color: #14532d;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.info p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #1b4332;
+}
+
+.precio {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0a6628;
+  margin-top: 0.2rem;
+}
+
+/* Botones al lado */
+.botones {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+button.comprar,
+button.agregar-carrito {
+  background: #2dbbaa;
+  border: none;
+  color: white;
+  padding: 0.9rem 1.6rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 6px 10px rgba(45, 187, 170, 0.4);
+  transition: background-color 0.3s ease;
+}
+button.comprar:hover,
+button.agregar-carrito:hover {
+  background: #249d90;
+}
+
+/* Link volver */
+a.volver {
+  color: #176f4d;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+a.volver:hover {
+  text-decoration: underline;
+}
+
+/* Descripción en otra tarjeta con blur menos fuerte */
+.descripcion-tarjeta {
+  background: rgba(255, 255, 255, 0.401);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 18px;
+  padding: 1.8rem 2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  color: #113d27;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Sección opiniones */
+.calificaciones {
+ background: rgba(255, 255, 255, 0.401);
+  backdrop-filter: blur(25px);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  color: #134d32;
+}
+
+.calificaciones h3 {
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.estrellas {
+  font-size: 1.7rem;
+  color: gold;
+  margin-bottom: 0.5rem;
+}
+
+.comentarios {
+  list-style: none;
+  padding-left: 0;
+  max-height: 120px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+
+.comentarios li {
+  padding: 0.3rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  font-size: 1rem;
+}
+
+textarea {
+  width: 100%;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  resize: vertical;
+  border: 1.5px solid #2dbbaa;
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 0.8rem;
+}
+textarea:focus {
+  border-color: #176f4d;
+}
+
+button.enviar-comentario {
+  background-color: #2dbbaa;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.7rem 1.3rem;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgba(45, 187, 170, 0.45);
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  width: 100%;
+}
+button.enviar-comentario:hover {
+  background-color: #176f4d;
+}
+
+/* Productos relacionados */
+.productos-relacionados {
+  background: rgba(255, 255, 255, 0.401);
+  backdrop-filter: blur(25px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  color: #114b3c;
+}
+.productos-relacionados h3 {
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.lista-relacionados {
+  display: flex;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.producto-rel {
+  flex: 1 1 160px;
+  bbackground: rgba(255, 255, 255, 0.401);
+  backdrop-filter: blur(30px);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  color: #14532d;
+  text-align: center;
+}
+.producto-rel:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.18);
+}
+.producto-rel img {
+  width: 100%;
+  max-width: 140px;
+  border-radius: 12px;
+  margin-bottom: 0.8rem;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.producto-rel p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #0f3d22;
+  margin-bottom: 0.3rem;
+}
+.producto-rel .precio-rel {
+  color: #176f4d;
+  font-weight: 700;
+  font-size: 1.1rem;
+}

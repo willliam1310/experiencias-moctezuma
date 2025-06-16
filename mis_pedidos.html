@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mis Pedidos - Experiencias Moctezuma</title>
+  <link rel="stylesheet" href="mis_pedidos.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+<body>
+  <header class="encabezado">
+    <img src="LOGPRO.jpg" alt="Logo Experiencias Moctezuma" class="logo" />
+    <h1>Mis Pedidos</h1>
+  </header>
+
+  <main class="contenedor-principal">
+    <section class="pedido-tarjeta blur-card">
+      <h2>Pedido #12345</h2>
+      <div class="producto-pedido">
+        <img src="producto1.jpg" alt="Crema para Quemaduras" />
+        <div class="info-producto">
+          <h3>Crema para Quemaduras</h3>
+          <p>Cantidad: 1</p>
+          <p>Precio: $89.00 MXN</p>
+          <p>Estado: En preparación</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seguimiento-envio blur-card">
+      <h2>Seguimiento de envío</h2>
+      <div id="mapa">
+        <i class="fa-solid fa-house fa-4x icon-casa"></i>
+        <i class="fa-solid fa-motorcycle fa-3x icon-repartidor"></i>
+      </div>
+      <p class="estado-envio">El repartidor está en camino...</p>
+    </section>
+
+    <section class="extras blur-card">
+      <h2>Gracias por tu compra</h2>
+      <p>Disfruta tus productos tradicionales y naturales.</p>
+      <div class="iconos-extra">
+        <i class="fa-solid fa-leaf"></i>
+        <i class="fa-solid fa-heart"></i>
+        <i class="fa-solid fa-shipping-fast"></i>
+      </div>
+      <button onclick="location.href='PRACTICA16.html'" class="boton-volver">
+        <i class="fa-solid fa-arrow-left"></i> Volver a la tienda
+      </button>
+    </section>
+  </main>
+
+  <footer class="pie blur-card">
+    <p>&copy; 2025 Experiencias Moctezuma — Tradición y Naturaleza.</p>
+  </footer>
+
+  <script>
+    // Animación repartidor con iconos FontAwesome
+    const repartidor = document.querySelector('.icon-repartidor');
+    let pos = 0;
+    function animarRepartidor() {
+      if (pos < 300) {  // Ajusta este valor según el ancho del mapa
+        pos += 2;
+        repartidor.style.left = pos + 'px';
+        requestAnimationFrame(animarRepartidor);
+      } else {
+        document.querySelector('.estado-envio').textContent =
+          'El repartidor ha llegado a la casa.';
+      }
+    }
+    animarRepartidor();
+  </script>
+</body>
+</html>

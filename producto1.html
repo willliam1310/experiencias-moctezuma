@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crema para Quemaduras - Experiencias Moctezuma</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="producto1.css" />
+</head>
+<body>
+  <!-- Iframe con página anterior difuminada -->
+  <iframe src="PRACTICA16.html" id="fondo-previa" aria-hidden="true"></iframe>
+
+  <main class="producto-container" role="main">
+    <!-- Tarjeta producto principal -->
+    <section class="tarjeta-blur" aria-label="Información del producto principal">
+      <img
+        src="producto1.jpg"
+        alt="Crema para Quemaduras"
+        class="imagen-producto"
+      />
+      <div class="info">
+        <h1>Crema para Quemaduras</h1>
+        <p>
+          Alivio instantáneo con ingredientes 100% naturales como sábila,
+          caléndula y miel. Ideal para quemaduras leves.
+        </p>
+        <p class="precio">$89.00 MXN</p>
+        <div class="botones">
+          <button
+            class="agregar-carrito"
+            onclick="agregarAlCarrito('Crema para Quemaduras', 89)"
+            aria-label="Agregar Crema para Quemaduras al carrito"
+          >
+            <i class="fa-solid fa-cart-plus"></i> Agregar al carrito
+          </button>
+          <button
+            class="comprar"
+            onclick="window.location.href='carrito.html'"
+            aria-label="Comprar Crema para Quemaduras ahora"
+          >
+            <i class="fa-solid fa-bag-shopping"></i> Comprar
+          </button>
+        </div>
+        <a href="PRACTICA16.html" class="volver" aria-label="Volver al catálogo"
+          ><i class="fa-solid fa-arrow-left"></i> Volver al catálogo</a
+        >
+      </div>
+    </section>
+
+    <!-- Descripción separada -->
+    <section class="descripcion-tarjeta" aria-label="Descripción detallada del producto">
+      <h2>Descripción del Producto</h2>
+      <p>
+        Nuestra crema para quemaduras combina ingredientes naturales cuidadosamente seleccionados para calmar la piel irritada y acelerar la recuperación. Es efectiva para quemaduras leves y es segura para toda la familia.
+      </p>
+    </section>
+
+    <!-- Sección opiniones -->
+    <section class="calificaciones" aria-label="Opiniones de clientes">
+      <h3>Opiniones</h3>
+      <div class="estrellas" aria-label="Calificación 4.8 de 5 estrellas">
+        ★★★★★ <span>(4.8 de 5)</span>
+      </div>
+      <ul class="comentarios" aria-live="polite" aria-relevant="additions">
+        <li><strong>Ana:</strong> Me encantó, la piel se siente más fresca. 🌿</li>
+        <li><strong>Luis:</strong> Muy buena crema, funciona excelente para quemaduras leves. 🔥</li>
+      </ul>
+      <textarea
+        placeholder="Escribe tu opinión aquí..."
+        aria-label="Escribe tu opinión"
+        id="comentarioInput"
+      ></textarea>
+      <button class="enviar-comentario" onclick="enviarComentario()">
+        Enviar comentario
+      </button>
+    </section>
+
+    <!-- Productos relacionados -->
+    <section class="productos-relacionados" aria-label="Productos relacionados">
+      <h3>Productos relacionados</h3>
+      <div class="lista-relacionados">
+        <div class="producto-rel" tabindex="0" role="button" onclick="location.href='producto2.html'">
+          <img src="producto2.jpg" alt="Crema para Acne" />
+          <p>Crema para Acne</p>
+          <p class="precio-rel">$75.00 MXN</p>
+        </div>
+        <div class="producto-rel" tabindex="0" role="button" onclick="location.href='producto3.html'">
+          <img src="producto3.jpg" alt="Jabón de Caléndula" />
+          <p>Jabón de Caléndula</p>
+          <p class="precio-rel">$50.00 MXN</p>
+        </div>
+        <div class="producto-rel" tabindex="0" role="button" onclick="location.href='producto4.html'">
+          <img src="producto4.jpg" alt="Bálsamo para cicatrices" />
+          <p>Bálsamo para cicatrices</p>
+          <p class="precio-rel">$99.00 MXN</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function agregarAlCarrito(producto, precio) {
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.push({ producto, precio });
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      alert(producto + " ha sido agregado al carrito.");
+      window.location.href = "carrito.html";
+    }
+
+    function enviarComentario() {
+      const textarea = document.getElementById("comentarioInput");
+      const texto = textarea.value.trim();
+      if (!texto) {
+        alert("Por favor escribe un comentario antes de enviar.");
+        return;
+      }
+      const listaComentarios = document.querySelector(".comentarios");
+      const nuevoComentario = document.createElement("li");
+      nuevoComentario.innerHTML = `<strong>Usuario:</strong> ${texto}`;
+      listaComentarios.appendChild(nuevoComentario);
+      textarea.value = "";
+      alert("Gracias por tu opinión.");
+    }
+  </script>
+</body>
+</html>

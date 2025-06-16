@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Experiencias Moctezuma</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="PRACTICA16.css" />
+</head>
+<body>
+  <div class="hamburguesa" onclick="toggleMenu()" aria-label="Abrir menú">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+  <aside class="menu-lateral" id="menuLateral">
+    <h3><i class="fa-solid fa-tags"></i> Categorías</h3>
+    <ul>
+      <li>Cremas Naturales</li>
+      <li>Remedios Tradicionales</li>
+      <li>Comida Regional</li>
+      <li>Tés y Jarabes</li>
+      <li>Kits de Regalo</li>
+    </ul>
+  </aside>
+
+  <header class="encabezado">
+    <div class="logo-titulo">
+      <img src="LOGPRO.jpg" alt="Logo de Experiencias Moctezuma" class="logo" />
+      <h1>Experiencias Moctezuma</h1>
+    </div>
+    <input
+      type="text"
+      placeholder="🔍 Buscar productos..."
+      class="barra-busqueda"
+      aria-label="Buscar productos"
+    />
+    <nav>
+      <ul class="menu">
+        <li><a href="#"><i class="fa-solid fa-list"></i> Categorías</a></li>
+        <li><a href="#"><i class="fa-solid fa-percent"></i> Ofertas</a></li>
+        <li><a href="#"><i class="fa-solid fa-box"></i> Mis Compras</a></li>
+        <li><a href="#"><i class="fa-solid fa-store"></i> Vender</a></li>
+        <li><a href="#"><i class="fa-solid fa-circle-question"></i> Ayuda</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="presentacion">
+    <div class="descripcion">
+      <h2>Bienestar y Sabor Tradicional</h2>
+      <div class="foto-duena">
+        <img
+          src="dueña.jpg"
+          alt="Fundadora de Experiencias Moctezuma"
+          class="foto-dueña"
+        />
+        <p>Reconocida por su labor en medicina natural y gastronomía mexicana.</p>
+      </div>
+
+      <p>
+        En <strong>Experiencias Moctezuma</strong> combinamos la sabiduría ancestral
+        con ingredientes naturales para crear productos de belleza caseros,
+        medicinales y alimentos típicos mexicanos. Desde cremas para quemaduras
+        hasta tamales oaxaqueños, cada artículo refleja la herencia de nuestras
+        raíces. Nuestra fundadora ha sido reconocida por preservar la medicina
+        tradicional y la cocina regional.
+      </p>
+    </div>
+  </section>
+
+  <main class="contenedor-productos">
+    <div class="producto">
+      <img src="producto1.jpg" alt="Crema para quemaduras" />
+      <h3>Crema para Quemaduras</h3>
+      <p class="descripcion-producto">
+        Alivia y regenera la piel con ingredientes naturales. Ideal para quemaduras leves.
+      </p>
+      <p class="precio">$89.00 MXN</p>
+      <a href="producto1.html"
+        ><button aria-label="Comprar Crema para Quemaduras"
+          ><i class="fa-solid fa-cart-shopping"></i> Comprar</button
+        ></a
+      >
+    </div>
+
+    <div class="producto">
+      <img src="producto2.jpg" alt="Tratamiento antiacné" />
+      <h3>Tratamiento Antiacné</h3>
+      <p class="descripcion-producto">Reduce imperfecciones y mejora la salud de tu piel.</p>
+      <p class="precio">$120.00 MXN</p>
+      <button aria-label="Comprar Tratamiento Antiacné">
+        <i class="fa-solid fa-cart-shopping"></i> Comprar
+      </button>
+    </div>
+
+    <div class="producto">
+      <img src="producto3.jpg" alt="Tortu Conchas" />
+      <h3>Tortu Conchas</h3>
+      <p class="descripcion-producto">
+        Deliciosas conchas con un toque especial. Solo por pedido.
+      </p>
+      <p class="precio">Solo por pedido</p>
+      <button aria-label="Comprar Tortu Conchas">
+        <i class="fa-solid fa-cart-shopping"></i> Comprar
+      </button>
+    </div>
+
+    <!-- Repetidos de Tortu Conchas para que mantengas -->
+    <div class="producto">
+      <img src="producto3.jpg" alt="Tortu Conchas" />
+      <h3>Tortu Conchas</h3>
+      <p class="descripcion-producto">
+        Deliciosas conchas con un toque especial. Solo por pedido.
+      </p>
+      <p class="precio">Solo por pedido</p>
+      <button aria-label="Comprar Tortu Conchas">
+        <i class="fa-solid fa-cart-shopping"></i> Comprar
+      </button>
+    </div>
+
+    <div class="producto">
+      <img src="producto3.jpg" alt="Tortu Conchas" />
+      <h3>Tortu Conchas</h3>
+      <p class="descripcion-producto">
+        Deliciosas conchas con un toque especial. Solo por pedido.
+      </p>
+      <p class="precio">Solo por pedido</p>
+      <button aria-label="Comprar Tortu Conchas">
+        <i class="fa-solid fa-cart-shopping"></i> Comprar
+      </button>
+    </div>
+
+    <div class="producto">
+      <img src="producto3.jpg" alt="Tortu Conchas" />
+      <h3>Tortu Conchas</h3>
+      <p class="descripcion-producto">
+        Deliciosas conchas con un toque especial. Solo por pedido.
+      </p>
+      <p class="precio">Solo por pedido</p>
+      <button aria-label="Comprar Tortu Conchas">
+        <i class="fa-solid fa-cart-shopping"></i> Comprar
+      </button>
+    </div>
+
+    <div class="producto">
+      <img src="producto3.jpg" alt="Tortu Conchas" />
+      <h3>Tortu Conchas</h3>
+      <p class="descripcion-producto">
+        Deliciosas conchas con un toque especial. Solo por pedido.
+      </p>
+      <p class="precio">Solo por pedido</p>
+      <button aria-label="Comprar Tortu Conchas">
+        <i class="fa-solid fa-cart-shopping"></i> Comprar
+      </button>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <p>&copy; 2025 Experiencias Moctezuma — Hecho con ❤️ y tradición.</p>
+    <div class="redes">
+      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a
+        href="https://www.youtube.com/watch?v=fmC6b6_ovZY&ab_channel=LadyGagaVEVO"
+        aria-label="Telegram"
+        ><i class="fa-brands fa-telegram"></i
+      ></a>
+    </div>
+  </footer>
+
+  <script src="iconos.js"></script>
+</body>
+</html>

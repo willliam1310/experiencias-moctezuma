@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Finalizar Compra - Experiencias Moctezuma</title>
+  <link rel="stylesheet" href="PRACTICA16.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header class="encabezado">
+    <div class="logo-titulo">
+      <img src="LOGPRO.jpg" alt="Logo de Experiencias Moctezuma" class="logo" />
+      <h1>Finalizar Compra</h1>
+    </div>
+  </header>
+
+  <main class="contenedor-finalizar">
+    <section class="resumen-compra">
+      <h2>Resumen de tu pedido</h2>
+      <p>Revise sus productos y datos antes de confirmar la compra.</p>
+    </section>
+
+    <section class="formulario-compra">
+      <h2>Datos para el envío</h2>
+      <form action="#" method="post">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" required />
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required />
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required />
+
+        <h2>Método de pago</h2>
+
+        <label>
+          <input type="radio" name="pago" value="paypal" required />
+          <i class="fa-brands fa-paypal"></i> PayPal
+        </label><br />
+
+        <label>
+          <input type="radio" name="pago" value="efectivo" />
+          <i class="fa-solid fa-money-bill-wave"></i> Efectivo al recibir
+        </label><br />
+
+        <label>
+          <input type="radio" name="pago" value="tarjeta" />
+          <i class="fa-solid fa-credit-card"></i> Tarjeta de crédito / débito
+        </label>
+
+        <!-- Campos tarjeta -->
+        <div class="pago-tarjeta oculto" id="tarjetaCampos">
+          <label for="tarjeta-num">Número de tarjeta:</label>
+          <input type="text" id="tarjeta-num" maxlength="16" placeholder="•••• •••• •••• ••••" />
+
+          <label for="nombre-tarjeta">Nombre en la tarjeta:</label>
+          <input type="text" id="nombre-tarjeta" />
+
+          <label for="exp">Fecha de expiración:</label>
+          <input type="month" id="exp" />
+
+          <label for="cvv">CVV:</label>
+          <input type="password" id="cvv" maxlength="4" />
+        </div>
+
+        <!-- Campos PayPal -->
+        <div class="pago-paypal oculto" id="paypalCampos">
+          <label for="paypal-email">Correo PayPal:</label>
+          <input type="email" id="paypal-email" placeholder="ejemplo@paypal.com" />
+
+          <label for="paypal-pass">Contraseña:</label>
+          <input type="password" id="paypal-pass" />
+        </div>
+
+        <button type="submit" class="btn-comprar">Finalizar compra</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>&copy; 2025 Experiencias Moctezuma — Hecho con ❤️ y tradición.</p>
+  </footer>
+
+  <script>
+    const radios = document.querySelectorAll('input[name="pago"]');
+    const tarjetaCampos = document.getElementById('tarjetaCampos');
+    const paypalCampos = document.getElementById('paypalCampos');
+
+    radios.forEach(el => {
+      el.addEventListener('change', () => {
+        if (el.value === 'tarjeta') {
+          tarjetaCampos.classList.remove('oculto');
+          paypalCampos.classList.add('oculto');
+        } else if (el.value === 'paypal') {
+          paypalCampos.classList.remove('oculto');
+          tarjetaCampos.classList.add('oculto');
+        } else {
+          tarjetaCampos.classList.add('oculto');
+          paypalCampos.classList.add('oculto');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
