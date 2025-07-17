@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sorpresa</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      background-color: black;
+      color: red;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      background-color: red;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+
+    #explosion {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: red;
+      animation: explode 0.5s ease-in-out forwards;
+      z-index: 10;
+    }
+
+    @keyframes explode {
+      0% { opacity: 0; transform: scale(0); }
+      100% { opacity: 1; transform: scale(3); }
+    }
+
+    #hidden-image {
+      display: none;
+      position: absolute;
+      z-index: 11;
+    }
+
+    #hidden-image img {
+      width: 80vw;
+      max-width: 800px;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <h1 id="message">Da click aquí</h1>
+    <button onclick="firstClick()">Click</button>
+  </div>
+
+  <div id="explosion" style="display: none;"></div>
+
+  <div id="hidden-image">
+    <img src="daniel.jpg" alt="Imagen final">
+  </div>
+
+  <script>
+    let stage = 0;
+
+    function firstClick() {
+      const content = document.getElementById('content');
+      content.innerHTML = `
+        <h1>¿Seguro que quieres dar click?</h1>
+        <button onclick="clickYes()">Sí</button>
+        <button onclick="clickNo()">No</button>
+      `;
+    }
+
+    function clickNo() {
+      const content = document.getElementById('content');
+      content.innerHTML = `
+        <h1>¿Seguro que quieres dar click?</h1>
+        <button onclick="clickYes()">Sí</button>
+        <button onclick="clickYes()">Sí</button>
+      `;
+    }
+
+    function clickYes() {
+      const content = document.getElementById('content');
+      content.innerHTML = `
+        <h1>¿Seguro que quieres ir a la página?</h1>
+        <button onclick="goToPage()">Click aquí</button>
+      `;
+    }
+
+    function goToPage() {
+      showSorpresa();
+    }
+
+    function showSorpresa() {
+      const content = document.getElementById('content');
+      content.innerHTML = `<h1>Sorpresa</h1><button onclick="showSorpresa2()">Click</button>`;
+    }
+
+    function showSorpresa2() {
+      const content = document.getElementById('content');
+      content.innerHTML = `<h1>Sorpresa</h1><button onclick="explode()">Click</button>`;
+    }
+
+    function explode() {
+      document.getElementById('content').style.display = 'none';
+      const explosion = document.getElementById('explosion');
+      explosion.style.display = 'block';
+      setTimeout(() => {
+        explosion.style.display = 'none';
+        showFinalImage();
+      }, 1000);
+    }
+
+    function showFinalImage() {
+      document.getElementById('hidden-image').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
